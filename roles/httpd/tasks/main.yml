@@ -1,0 +1,22 @@
+- name: Install HTTPD and HTTPD-modules
+  yum:
+    state: present
+    name:
+      - httpd
+      - mod_ssl
+      - libsemanage-python
+
+- name: Start and enable HTTPD (at boot time)
+  service:
+    name: httpd
+    enabled: yes
+    state: started
+
+- name: Set httpd_can_network_connect flag on and keep it persistent across reboots
+  seboolean:
+    name: httpd_can_network_connect
+    state: yes
+    persistent: yes
+    
+- name: Initial preperation of configuration for HTTPD
+  shell: "molgenis_apache_initialize_configuration -d {{inventory_hostname}} -p 8080 -r http"

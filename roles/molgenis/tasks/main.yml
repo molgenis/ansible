@@ -1,0 +1,4 @@
+- name: Install MOLGENIS
+  yum:
+    name: molgenis-{{ molgenis_version }}
+    state: present

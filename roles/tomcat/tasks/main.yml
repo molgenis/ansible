@@ -1,0 +1,21 @@
+- name: Remove tomcat6
+  yum:
+    name: tomcat6*
+    state: absent
+
+- name: Remove molgenis-ops-tomcat (version >= 9.2.0)
+  yum:
+    name: molgenis-ops-tomcat
+    state: absent
+
+- name: Install Tomcat
+  yum:
+    state: present
+    name:
+      - tomcat-9.3.0-1
+
+- name: Start and enable Tomcat (at boot time)
+  service:
+    name: tomcat
+    enabled: yes
+    state: started

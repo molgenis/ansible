@@ -1,0 +1,43 @@
+- name: Install packages which are used by the default installation
+  yum:
+    state: present
+    name:
+      - redhat-lsb-core
+      - libselinux-python
+      - epel-release
+      - nano
+      - sudo
+      - rsync
+      - lsof
+      - wget
+      - ntp
+      
+- name: Install MOLGENIS tools package (firewall, httpd configuration, NTP configuration)
+  yum:
+    state: present
+    name: molgenis-ops-tools-2.0.0-1      
+
+- name: Create the releases repository for MOLGENIS
+  copy:
+    src: molgenis-releases.repo
+    dest: /etc/yum.repos.d/molgenis-releases.repo
+
+- name: Create the snapshots repository for MOLGENIS
+  copy:
+    src: molgenis-snapshots.repo
+    dest: /etc/yum.repos.d/molgenis-snapshots.repo
+  when: experimental
+
+- name: Delete UMCG repo
+  file:
+    state: absent
+    path: /etc/yum.repos.d/umcg.repo
+
+- name: Install Java JDK 11
+  yum:
+    state: present
+    name:
+      - adopt-openjdk-11.0.0-1
+
+- name: Initial preperation of NTP
+  shell: "molgenis_ntp_sync"

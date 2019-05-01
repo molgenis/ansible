@@ -1,0 +1,11 @@
+- name: Install Minio
+  yum:
+    state: present
+    name:
+      - minio-19.4.0-1
+
+- name: Start and enable Minio (at boot time)
+  service:
+    name: minio
+    enabled: yes
+    state: started

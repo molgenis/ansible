@@ -1,0 +1,9 @@
+[nexus-snapshot]
+name=MOLGENIS snapshot repository
+baseurl=https://registry.molgenis.org/repository/yum-snapshots/
+enabled=1
+protect=0
+gpgcheck=0
+metadata_expire=30s
+autorefresh=1
+type=rpm-md

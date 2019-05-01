@@ -1,0 +1,12 @@
+- name: Allow users to login without password
+  lineinfile:
+    state: present
+    path: /etc/ssh/sshd_config
+    regexp: '^PasswordAuthentication'
+    line: 'PasswordAuthentication no'
+    
+- name: Start and enable sshd (at boot time)
+  service:
+    name: sshd
+    enabled: yes
+    state: restarted

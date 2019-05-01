@@ -1,0 +1,8 @@
+- name: Install versionlock plugin
+  yum:
+    state: present
+    name:
+      - yum-plugin-versionlock
+
+- name: Use versionlock plugin for tools, Tomcat and Java
+  command: yum versionlock molgenis-ops-tomcat molgenis-ops-tools

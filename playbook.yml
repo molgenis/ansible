@@ -1,0 +1,16 @@
+# specify hostgroup to specify the hosts which the template should address.
+
+- name: Deployment for MOLGENIS - development
+  hosts: molgenis-dev
+  vars:
+    molgenis_version: 8.0.2
+  roles:
+   - preinstall
+   - sshd
+   - httpd
+   - elasticsearch
+   - postgres
+   - minio
+   - tomcat
+   - molgenis
+   - postinstall
