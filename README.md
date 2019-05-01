@@ -15,7 +15,7 @@ You can toggle a number of settings. You can use ```--extra-vars``` flag to set 
 
 > note: multiple vars can be set space separated. Example: ```--extra-vars "molgenis_version=8.0.3"```.
 
-## Third party usage
+## Actions after running the playbook
 What you need to do after this installation.
 
 - SSH
@@ -90,11 +90,17 @@ The installation of PostgreSQL consists of 5 major steps:
 * Create 'molgenis'-scheme in PSQL
 * Grant right on 'molgenis'-scheme with user 'molgenis' 
 
+## Role: [ minio ] - Add Minio
+There are 2 steps that are performed when running this role.
+
+* Install minio
+* Enable minio
+
 ## Role: [ tomcat ] - Add Tomcat
 There are 2 steps that are performed when running this role.
 
-* Install molgenis-ops-tomcat
-* Start and enable molgenis-ops-tomcat
+* Install tomcat
+* Start and enable tomcat
 
 ## Role: [ molgenis ] - Add MOLGENIS 
 Install MOLGENIS on the system
