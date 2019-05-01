@@ -2,7 +2,7 @@
 
 >note supported MOLGENIS versions: 8.x 
 
-Update MOLGENIS VM instances with Ansible version 2.7.x or higher.
+Create your MOLGENIS VM with Ansible version 2.7.x or higher.
 
 Execute for roll out:
 
