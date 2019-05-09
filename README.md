@@ -107,4 +107,3 @@ Install MOLGENIS on the system
 
 ## Role: [ postinstall ] - Post installation configuration
 * yum versionlock is performed on MOLGENIS rpm's
-

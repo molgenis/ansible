@@ -11,11 +11,6 @@
       - lsof
       - wget
       - ntp
-      
-- name: Install MOLGENIS tools package (firewall, httpd configuration, NTP configuration)
-  yum:
-    state: present
-    name: molgenis-ops-tools-2.0.0-1      
 
 - name: Create the releases repository for MOLGENIS
   copy:
@@ -38,6 +33,11 @@
     state: present
     name:
       - adopt-openjdk-11.0.0-1
+
+- name: Install MOLGENIS tools package (firewall, httpd configuration, NTP configuration)
+  yum:
+    state: present
+    name: molgenis-ops-tools-3.0.0-1      
 
 - name: Initial preperation of NTP
   shell: "molgenis_ntp_sync"
