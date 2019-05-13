@@ -17,6 +17,7 @@
     name: httpd_can_network_connect
     state: yes
     persistent: yes
-    
+  when: not ci
+
 - name: Initial preperation of configuration for HTTPD
   shell: "molgenis_apache_initialize_configuration -d {{inventory_hostname}} -p 8080 -r http"
